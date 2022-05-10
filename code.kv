@@ -1,0 +1,377 @@
+<UI>:
+    MDScreen:
+        name : "loginpage"
+        md_bg_color : [24/255,34/255,45/255,1]
+        MDCard:
+            orientation:"vertical"
+            size_hint : None,None
+            size : 620,870
+            pos_hint : {"center_x":.5,"center_y":.5}
+            elevation : 30
+            md_bg_color : [24/255,34/255,50/255,1]
+
+
+            BoxLayout:
+                orientation : "vertical"
+                padding : 50
+                spacing : 50
+                pos_hint : {"center_x":.5,"center_y":.5}
+
+                MDLabel:
+                    text : 'Friender'
+                    color : [245/255,245/255,245/255,1]
+                    halign : "center"
+                    size_hint_y : 9
+                    width : 300
+                    font_size : 55
+                    pos_hint : {"center_x":.5}
+                MDLabel:
+                    font_name: '/System/Library/Fonts/ヒラギノ角ゴシック W2.ttc'
+                    text : 'ー check my friends ー'
+                    color : [245/255,245/255,245/255,1]
+                    halign : "center"
+                    size_hint_y : 0.01
+                    width : 600
+                    font_size : 38
+                    pos_hint : {"center_x":.5}
+                    spacing : 10
+                BoxLayout:
+                    size_hint : None,None
+                    orientation : "horizontal"
+                    pos_hint : {"center_x":.31,"center_y":.5}
+                    padding : 0
+                    spacing : 0
+                    halign : "center"
+                    MDIconButton:
+                        icon : "clipboard-text-outline"
+                        icon_size : 60
+                        halign : "center"
+                        pos_hint : {"center_x":.5,"center_y":.5}
+                    MDIconButton:
+                        icon : "account-heart"
+                        icon_size : 60
+                        halign : "center"
+                        pos_hint : {"center_x":.5,"center_y":.5}
+                    MDIconButton:
+                        icon : "magnify"
+                        icon_size : 60
+                        halign : "center"
+                        pos_hint : {"center_x":.5,"center_y":.5}
+
+                MDTextFieldRound :
+                    id: N_n
+                    hint_text : "username"
+                    icon_right : "account"
+                    size_hint_x : None
+                    width : 300
+                    font_size : 25
+                    pos_hint : {"center_x":.5}
+                    color_active : [1,1,1,1]
+                MDTextFieldRound :
+                    id: K_k
+                    hint_text : "password"
+                    icon_right : "eye-off"
+                    size_hint_x : None
+                    width : 300
+                    font_size : 25
+                    pos_hint : {"center_x":.5}
+                    color_active : [1,1,1,1]
+                    password : True
+            
+
+                MDRoundFlatButton :
+                    text : 'Login'
+                    pos_hint : {"center_x":.5}
+                    font_size : 28
+                    on_press:app.getNm() ,app.getKy()
+                    on_release:root.current = 'progresspage'
+
+                MDRoundFlatButton :
+                    text : 'about this'
+                    pos_hint : {"center_x":.5}
+                    font_size : 18
+                    on_release:root.current = 'aboutthisapp'
+                
+            Widget :
+                size_hint_y : None
+                height : 40
+
+            
+
+
+
+    MDScreen:
+        name : "progresspage"
+        md_bg_color : [24/255,34/255,45/255,1]
+        MDCard:
+            size_hint : None,None
+            size : 620,870
+            pos_hint : {"center_x":.5,"center_y":.5}
+            elevation : 30
+            md_bg_color : [24/255,34/255,50/255,1]
+            padding:0
+            spacing:10
+            orientation:"vertical"
+
+            BoxLayout:
+                orientation : "vertical"
+
+                Label:
+                    font_name: '/System/Library/Fonts/ヒラギノ角ゴシック W2.ttc'
+                    text:'プログラムの実行'
+                    halign : "center"
+                    valign: 'middle'
+                    size_hint_y : None
+                    font_size : 40
+                    pos_hint : {"center_x":.5,"center_y":.5}
+                   
+                Label:
+                    font_name: '/System/Library/Fonts/ヒラギノ角ゴシック W2.ttc'
+                    text: "処理が完了するまで数分かかる場合があります"
+                    halign : "center"
+                    valign: 'middle'
+                    size_hint_y : None
+                    font_size : 25
+                    pos_hint : {"center_x":.5,"center_y":.5}
+
+
+                Label:
+                    font_name: '/System/Library/Fonts/ヒラギノ角ゴシック W2.ttc'
+                    text: "フォロー,フォロワー合計 ~2000人　：　約4分"
+                    halign : "center"
+                    valign: 'middle'
+                    size_hint_y : None
+                    font_size : 25
+                    pos_hint : {"center_x":.5,"center_y":.5}
+
+                Label:
+                    font_name: '/System/Library/Fonts/ヒラギノ角ゴシック W2.ttc'
+                    text: "フォロー,フォロワー合計 ~1000人　：　約2分"
+                    halign : "center"
+                    valign: 'middle'
+                    size_hint_y : None
+                    font_size : 25
+                    pos_hint : {"center_x":.5,"center_y":.5}
+            BoxLayout:
+                orientation : "vertical"
+                spacing : 55
+                
+                Label:
+                    font_name: '/System/Library/Fonts/ヒラギノ角ゴシック W2.ttc'
+                    text: "サーチを開始する"
+                    halign : "center"
+                    valign: 'middle'
+                    size_hint_y : None
+                    font_size : 35
+                    pos_hint : {"center_x":.5,"center_y":.5}
+
+                MDRoundFlatButton :
+                    spacing : 10
+                    text : 'Start'
+                    pos_hint : {"center_x":.5}
+                    font_size : 28
+                    on_press: app.getRes(),app.getStr()
+                    on_release:root.current = 'startpage'
+
+                MDRoundFlatButton :
+                    spacing : 30
+                    text : 'Home'
+                    pos_hint : {"center_x":.5}
+                    font_size : 18
+                    on_release:root.current = 'loginpage'
+                
+        
+            Widget :
+                size_hint_y : None
+                height : 30
+
+
+    MDScreen:
+        name : "aboutthisapp"
+        md_bg_color : [24/255,34/255,45/255,1]
+        MDCard:
+            size_hint : None,None
+            size : 620,870
+            pos_hint : {"center_x":.5,"center_y":.5}
+            elevation : 30
+            md_bg_color : [24/255,34/255,50/255,1]
+            padding : 20
+            BoxLayout:
+                orientation : "vertical"
+                size_hint : None,None
+                pos_hint: {'center_y':0.25}   
+                spacing:80
+                Label:
+                    font_name: '/System/Library/Fonts/ヒラギノ角ゴシック W2.ttc'
+                    text:'　　　　　　　　　　　　アプリについて'
+                    font_size : 40
+                Label:
+                    font_name: '/System/Library/Fonts/ヒラギノ角ゴシック W2.ttc'
+                    text:'　　　　　　　　　　　　　　　　　　　　　　　　　　このアプリは、 Instagram 上における自分の「フォローバックさ'
+                    font_size : 19
+                Label:
+                    font_name: '/System/Library/Fonts/ヒラギノ角ゴシック W2.ttc'
+                    text:'　　　　　　　　　　　　　　　　　　　　　　　　　　れていない」ユーザーを自動で抽出し、一覧表示するシステムです。'
+                    font_size : 19
+                Label:
+                    font_name: '/System/Library/Fonts/ヒラギノ角ゴシック W2.ttc'
+                    text:'　　　　　　　　　　　　　　　　　　　　　　　　　 ※フォローバックされていないユーザーとは、自分は相手をフォロー'
+                    font_size : 19
+                Label:
+                    font_name: '/System/Library/Fonts/ヒラギノ角ゴシック W2.ttc'
+                    text:'　　　　　　　　　　　　　　　　　　　　　　　　　　しているが、相手は自分をフォローしていないユーザーを示します。'
+                    font_size : 19
+                Label:
+                    font_name: '/System/Library/Fonts/ヒラギノ角ゴシック W2.ttc'
+                    text:'　　　　　　　　　　　　　　　　　　　　　　　　　　このユーザーのことをFrender内では【Nofb】として表記します。'
+                    font_size : 19
+                Label:
+                    font_name: '/System/Library/Fonts/ヒラギノ角ゴシック W2.ttc'
+                    text:'　　　　　　　　　　　　　　　　　　　　　　　　　 さらに、自分のファンとして一方的にフォローしているユーザーも'
+                    font_size : 19
+                Label:
+                    font_name: '/System/Library/Fonts/ヒラギノ角ゴシック W2.ttc'
+                    text:'　　　　　　　　　　　　　　　　　　　　　　　　　　上記と同様にデータを抽出し、一覧表示させることが可能です。'
+                    font_size : 19
+                Label:
+                    font_name: '/System/Library/Fonts/ヒラギノ角ゴシック W2.ttc'
+                    text:'　　　　　　　　　　　　　　　　　　　　　　　　　　このユーザーのことをFrender内では【Fans】として表記します。'
+                    font_size : 19
+                    
+
+
+            BoxLayout:
+                orientation : "horizontal"
+                spacing : 200
+                pos_hint: {'center_x':0.45, 'y': 0.03}
+                MDRoundFlatButton :
+                    font_name: '/System/Library/Fonts/ヒラギノ角ゴシック W2.ttc'
+                    text : '戻る'
+                    font_size : 25
+                    on_release:root.current = 'loginpage'
+                MDRoundFlatButton :
+                    font_name: '/System/Library/Fonts/ヒラギノ角ゴシック W2.ttc'
+                    text : '次へ'
+                    pos_hint : {"center_x":.5}
+                    font_size : 25
+                    on_release:root.current = 'attention'
+
+            Widget :
+                size_hint_y : None
+                height : 30
+
+    MDScreen:
+        name : "attention"
+        md_bg_color : [24/255,34/255,45/255,1]
+        MDCard:
+            size_hint : None,None
+            size : 620,870
+            pos_hint : {"center_x":.5,"center_y":.5}
+            elevation : 30
+            md_bg_color : [24/255,34/255,50/255,1]
+            padding:20
+            orientation:"vertical"
+
+        
+            BoxLayout:
+                orientation : "vertical"
+                size_hint : None,None
+                padding : 0
+                spacing : 58
+                pos_hint : {"center_x":0.5}
+                Label:
+                    font_name: '/System/Library/Fonts/ヒラギノ角ゴシック W2.ttc'
+                    text:'使用上の注意'
+                    font_size : 40
+                Label:
+                    font_name: '/System/Library/Fonts/ヒラギノ角ゴシック W2.ttc'
+                    text:'システムはアプリ内プログラムによりバックエンドで稼働します。'
+                    font_size : 19
+                Label:
+                    font_name: '/System/Library/Fonts/ヒラギノ角ゴシック W2.ttc'
+                    text:'必ずインターネット接続が必要です。実行結果が表示されない場合は'
+                    font_size : 19
+                Label:
+                    font_name: '/System/Library/Fonts/ヒラギノ角ゴシック W2.ttc'
+                    text:'Homeボタンで実行を停止しインターネット接続を確認してください。'
+                    font_size : 19
+                Label:
+                    font_name: '/System/Library/Fonts/ヒラギノ角ゴシック W2.ttc'
+                    text:'また、ログイン情報が正しく入力されているか確認してください。'
+                    font_size : 19
+                Label:
+                    font_name: '/System/Library/Fonts/ヒラギノ角ゴシック W2.ttc'
+                    text:'ログイン情報とセキュリティ保護のため、必ず暗号化されたイン'
+                    font_size : 19
+                Label:
+                    font_name: '/System/Library/Fonts/ヒラギノ角ゴシック W2.ttc'
+                    text:'ターネットに接続し、フリーWI-FIは絶対に使用しないでください。'
+                    font_size : 19
+                Label:
+                    font_name: '/System/Library/Fonts/ヒラギノ角ゴシック W2.ttc'
+                    text:'入力されたログイン情報はセキュリティ保護のため記録されません。'
+                    font_size : 19
+                Label:
+                    font_name: '/System/Library/Fonts/ヒラギノ角ゴシック W2.ttc'
+                    text:'実行する際は、その都度ログイン情報を入力しなおしてください。'
+                    font_size : 19
+                Label:
+                    font_name: '/System/Library/Fonts/ヒラギノ角ゴシック W2.ttc'
+                    text:'短時間に連続して実行すると、セキュリティ保護システムにより'
+                    font_size : 19
+                Label:
+                    font_name: '/System/Library/Fonts/ヒラギノ角ゴシック W2.ttc'
+                    text:'インスタグラムへのアクセスがロックされる場合があります。'
+                    font_size : 19
+                Label:
+                    font_name: '/System/Library/Fonts/ヒラギノ角ゴシック W2.ttc'
+                    text:'再度実行する際は10分程度の時間を空けて使用してください。'
+                    font_size : 19
+
+                MDRoundFlatButton :
+                    text : 'Home'
+                    pos_hint : {"center_x":.5,"center_y":.1}
+                    font_size : 25
+                    on_release:root.current = 'loginpage'
+
+            Widget :
+                size_hint_y : None
+                height : 30
+
+    MDScreen:
+        name : "startpage"
+        md_bg_color : [24/255,34/255,45/255,1]
+        MDCard:
+            size_hint : None,None
+            size : 620,870
+            pos_hint : {"center_x":.5,"center_y":.5}
+            elevation : 30
+            md_bg_color : [24/255,34/255,50/255,1]
+            
+                            
+            BoxLayout:
+                orientation : "vertical"
+                spacing : 0
+                padding : 100
+                Label:
+                    font_name: '/System/Library/Fonts/ヒラギノ角ゴシック W2.ttc'
+                    text: '実行結果'
+                    font_size : 40
+                    pos_hint : {"center_x":1.9,"center_y":.5}
+                    
+                Label:
+                    font_name: '/System/Library/Fonts/ヒラギノ角ゴシック W2.ttc'
+                    pos_hint : {"center_x":1.9,"center_y":.5}
+                    text:str(root.results)+'実行'
+                    font_size : 40
+
+                MDRoundFlatButton :
+                    pos_hint : {"center_x":1.9,"center_y":.5}
+                    text : 'Home'
+                    font_size : 25
+                    on_release:root.current = 'loginpage'
+
+            Widget :
+                size_hint_y : None
+                height : 30
+                
